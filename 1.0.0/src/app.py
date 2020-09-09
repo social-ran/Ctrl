@@ -39,6 +39,7 @@ class Ctrler(AppBase):
             fp.write('",\n"VPNIPADDR":"')
             fp.write(vpnipaddr)
         fp.write('\n}\n}\n')
+        fp.close()
         os.system('sshpass -p 123456 scp post_info.json 10.245.142.21:/home/config')
         os.system('rm -r post_info.json')
         return "ctrler OK!!"
