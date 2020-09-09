@@ -11,6 +11,20 @@ actions:
   - name: contrl
     description: contrl
     parameters:
+      - name: ctrlc
+        description: Control computer
+        multiline: false
+        required: true
+        example: 10.245.142.21
+        schema:
+          type: string
+      - name: pwd
+        description: password
+        multiline: false
+        required: true
+        example: 123456
+        schema:
+          type: string
       - name: cmd
         description: Control the start and stop parameters of the simulation program, which can be set as start / stop
         multiline: false
