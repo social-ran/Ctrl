@@ -36,7 +36,7 @@ actions:
         description: the frequency of the packet control parameter , the number of execution of the package procedure per second [value:1-100000]
         multiline: false
         required: false
-        example: number(1000)/[Default 1000]
+        example: number(1000)
         schema:
           type: number
       - name: start_time
@@ -66,21 +66,21 @@ actions:
         required: false
         schema:
           type: string
-        example:Default:no
+        example:Default no
       - name: vpnserveip
         description: VPN service node IP
         multiline: false
         required: false
         schema:
           type: string
-        example: Default:no
+        example: Default no
       - name: vpnipaddr
         description: Request IP assigned by VPN service node
         multiline: false
         required: false
         schema:
           type: string
-        example: Default:no
+        example: Default no
     returns:
       schema:
         type: string
