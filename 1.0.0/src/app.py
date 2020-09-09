@@ -30,7 +30,7 @@ class Ctrler(AppBase):
         fp.write('",\n"IPADDR":"')
         fp.write(ip)
         fp.write('",\n"FREQUENCY":"')
-        fp.write(frequency)#1-100000
+        fp.write(str(frequency))#1-100000
         if vpntype!='no':
             fp.write('",\n"VPNTYPE":"')
             fp.write(vpntype)
