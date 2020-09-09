@@ -8,7 +8,7 @@ class Ctrler(AppBase):
     def __init__(self, redis, logger, console_logger=None):
         super().__init__(redis, logger, console_logger)
 
-    async def contrl(self,ctrlc,pwd,cmd, ip,servetype, frequency , start_time="2018-08-11 13:41:11", end_time="2018-08-11 13:41:41",
+    async def contrl(self,ctrlc,pwd,cmd, ip,servetype, frequency , start_time='-1', end_time="2018-08-11 13:41:41",
                         log_path="/var/log/appsimulation/traffic_gen.log" ,vpntype='no' , vpnserveip='no', vpnipaddr='no',):
         if cmd!='start' and cmd != 'stop':
             return "cmd error!!"
@@ -17,7 +17,9 @@ class Ctrler(AppBase):
             return "serveType error!!"
         if frequency<1 or frequency>100000:
             return  "frequency error!!"
-
+        if start_time == '-1':
+            start_time = "2018-08-11 13:41:11"
+        
 
         fp = open('post_info.json', 'w')
         fp.write('{\n"cmd_info":{\n"cmd":"start"\n},\n"task_info":{\n"log_path":"')
@@ -27,7 +29,7 @@ class Ctrler(AppBase):
         fp.write('",\n"end_time":"')
         fp.write(end_time)
         fp.write('"\n},\n"behavior_conf":{\n"SERVERTYPE":"')
-        fp.write('receiver')#####!!!!!
+        fp.write(servetype)
         fp.write('",\n"IPADDR":"')
         fp.write(ip)
         fp.write('",\n"FREQUENCY":"')
