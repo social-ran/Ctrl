@@ -8,7 +8,7 @@ class Ctrler(AppBase):
     def __init__(self, redis, logger, console_logger=None):
         super().__init__(redis, logger, console_logger)
 
-    async def contrl(self,cmd, ip,servetype, frequency = 1000 , start_time="2018-08-11 13:41:11", end_time="2018-08-11 13:41:41",
+    async def contrl(self,cmd, ip,servetype, frequency , start_time="2018-08-11 13:41:11", end_time="2018-08-11 13:41:41",
                         log_path="/var/log/appsimulation/traffic_gen.log" ,vpntype='no' , vpnserveip='no', vpnipaddr='no',):
         if cmd!='start' and cmd != 'stop':
             return "cmd error!!"
