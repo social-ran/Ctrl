@@ -60,7 +60,7 @@ actions:
         schema:
           type: string
         example: /var/log/appsimulation/traffic_gen.log
-      - name: vpnpath
+      - name: vpntype
         description: Simulate VPN service node type
         multiline: false
         required: false
