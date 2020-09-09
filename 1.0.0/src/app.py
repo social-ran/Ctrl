@@ -17,12 +17,7 @@ class Ctrler(AppBase):
             return "serveType error!!"
         if frequency<1 or frequency>100000:
             return  "frequency error!!"
-        start_time = '2018-08-11 13:41:11'
-        end_time = '2018-08-11 13:41:41',
-        log_path = '/var/log/appsimulation/traffic_gen.log'
-        vpntype = 'no'
-        vpnserveip = 'no'
-        vpnipaddr = 'no'
+
 
         fp = open('post_info.json', 'w')
         fp.write('{\n"cmd_info":{\n"cmd":"start"\n},\n"task_info":{\n"log_path":"')
