@@ -35,7 +35,7 @@ actions:
       - name: frequency
         description: the frequency of the packet control parameter , the number of execution of the package procedure per second [value:1-100000]
         multiline: false
-        required: false
+        required: true
         example: number(1000)
         schema:
           type: number
