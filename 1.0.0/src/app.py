@@ -8,7 +8,7 @@ class Ctrler(AppBase):
     def __init__(self, redis, logger, console_logger=None):
         super().__init__(redis, logger, console_logger)
 
-    async def contrl(self,cmd, ip,servetype, frequency , start_time="2018-08-11 13:41:11", end_time="2018-08-11 13:41:41",
+    async def contrl(self,ctrlc,pwd,cmd, ip,servetype, frequency , start_time="2018-08-11 13:41:11", end_time="2018-08-11 13:41:41",
                         log_path="/var/log/appsimulation/traffic_gen.log" ,vpntype='no' , vpnserveip='no', vpnipaddr='no',):
         if cmd!='start' and cmd != 'stop':
             return "cmd error!!"
@@ -17,6 +17,12 @@ class Ctrler(AppBase):
             return "serveType error!!"
         if frequency<1 or frequency>100000:
             return  "frequency error!!"
+        start_time = "2018-08-11 13:41:11"
+        end_time = "2018-08-11 13:41:41",
+        log_path = "/var/log/appsimulation/traffic_gen.log"
+        vpntype = 'no'
+        vpnserveip = 'no'
+        vpnipaddr = 'no'
 
         fp = open('post_info.json', 'w')
         fp.write('{\n"cmd_info":{\n"cmd":"start"\n},\n"task_info":{\n"log_path":"')
@@ -31,7 +37,7 @@ class Ctrler(AppBase):
         fp.write(ip)
         fp.write('",\n"FREQUENCY":"')
         fp.write(str(frequency))#1-100000
-        if vpntype!='no':
+        if vpntype != 'no':
             fp.write('",\n"VPNTYPE":"')
             fp.write(vpntype)
             fp.write('",\n"VPNSERVERIP":"')
@@ -40,7 +46,7 @@ class Ctrler(AppBase):
             fp.write(vpnipaddr)
         fp.write('\n}\n}\n')
         fp.close()
-        os.system('sshpass -p 123456 scp post_info.json 10.245.142.21:/home/config')
+        os.system('sshpass -p '+pwd+ ' scp post_info.json '+ctrlc+':/home/config')
         os.system('rm -r post_info.json')
         return "ctrler OK!!"
 
