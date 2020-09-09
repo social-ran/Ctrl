@@ -1,0 +1,87 @@
+app_version: 1.0.0
+name: ctrler
+description: This is a ctrler
+
+contact_info:
+  name: "@socialran"
+  url: https://shuffler.io
+  email: ran131110@163.com
+
+actions:
+  - name: contrl
+    description: contrl
+    parameters:
+      - name: cmd
+        description: Control the start and stop parameters of the simulation program, which can be set as start / stop
+        multiline: false
+        required: true
+        example: start/stop
+        schema:
+          type: string
+      - name: ip
+        description: Server IP address
+        multiline: false
+        required: true
+        example: 192.168.80.147
+        schema:
+          type: string
+      - name: servetype
+        description: Simulation service type, can set the simulated protocol type, the server and the client should be consistent (arpserver, arpclient, dnsserver, dnsclient, ftpserver, ftpclient, httpserver, httpclient, ircserver, ircclient, mailserver, mailclient, ntpserver, NtpClient, rtpserver, rtpclient, sshserver, sshclient, telnetserver, telnetclient, tftpserver, tftpclient)
+        multiline: false
+        required: true
+        example: arpServer,arpClient,dnsServer,dnsClient,ftpServer,ftpClient, httpServer,httpClient,ircServer,ircClient,mailServer,mailClient,ntpServer,ntpClient,rtpServer,rtpClient,sshServer,sshClient,telnetServer,telnetClient,tftpServer,tftpClient
+        schema:
+          type: string
+      - name: frequency
+        description: the frequency of the packet control parameter , the number of execution of the package procedure per second [value:1-100000]
+        multiline: false
+        required: false
+        example: number(1000)/[Default 1000]
+        schema:
+          type: number
+      - name: start_time
+        description: start time
+        multiline: false
+        required: false
+        schema:
+          type: string
+        example: 2018-08-11 13:41:11
+      - name: end_time
+        description: end time
+        multiline: false
+        required: false
+        schema:
+          type: string
+        example: 2018-08-11 13:41:11
+      - name: log_path
+        description: log path
+        multiline: false
+        required: false
+        schema:
+          type: string
+        example: /var/log/appsimulation/traffic_gen.log
+      - name: vpnpath
+        description: Simulate VPN service node type
+        multiline: false
+        required: false
+        schema:
+          type: string
+        example:Default:no
+      - name: vpnserveip
+        description: VPN service node IP
+        multiline: false
+        required: false
+        schema:
+          type: string
+        example: Default:no
+      - name: vpnipaddr
+        description: Request IP assigned by VPN service node
+        multiline: false
+        required: false
+        schema:
+          type: string
+        example: Default:no
+    returns:
+      schema:
+        type: string
+large_image: data:image/jpg;base64,iVBORw0KGgoAAAANSUhEUgAAARYAAAEDAQMAAADKmLkkAAAABlBMVEX///8AAABVwtN+AAAACXBIWXMAAA7EAAAOxAGVKw4bAAAGO0lEQVR4nM3aS67lNBAAUJtIeIIwO/AeGCN5yqIQzg5YQi+lA5MeMmUYxAIICKEIhRQuf6tsJzeNuhF38PolfeK4yt/kPiH+px+1PjDba6OPD2TgQX1gIRcsQ6NhrQfmz4tyiHH0gBoSPMA+MhOc5HdyQD6SG/hhaICZYdoBZmqGFYKaIDTDCpFL0dRSmaktZgBo2ocGC1pfGHERGDNuHBgzlh2NjRkHz4x+YBTAoF9KduUTMw0TzY18aJZRnU929O8Nzax7YOwzs3ZEvr8xow4keY8ZGtGZQSczH8XoobGtGXRo15pBZ4XWDDrixzHmgbHRmLMxGzf43w4as4rPypELRjWjA8sx5Mgb1fZqNC5fhWPnCMGtjZHADP7grebXiGCWci8shreagwWNXEud30I7B3ujfKTJYH7ipzG4Fk7RmGJmZla8aIqZVBcGiBHFLL3J67zLZm2MD2JKCSmV3q5NqfRfD8qhwQOvc7jkJ97VZGNidQ0Lvpi95kc0ZkoJS8bE2nGjk1F7qc7RGJlj0HspdY7RFaMGJmVg4cWc2WjI46I2RirmyMYMTMrqnk1qYGpyb9mSkSlIQRo+N+Ca9m4xWQszuQGXZFS6QhKTm3hO98Jyf/N3llBi11BCjwbLFT6CqRpHzRGrvAt3xHsutTljeoRJZhX2jDdY6K3C2EYT5wtvDOT2ylGFCNDEydAbm025VTRn3pF4AyndfNh+hSZm3J4yB1JHJB59601a3O2p8llZDIZ1epM2EsnUvKej6TSQNyQWdA62RB56xmEhz/EW3kCsWY0KjwwaGythS7CaGYvGxYkgmWVooJoz9oVqfH3cbuG7lE00f5jfRWtgsyXj+NtilmB2V+415YNkPhefxu6+22IUM2Vq9mnOZsWNv8vVJ8ZH8aYY/5CRbuyjcdU4eEfM4kpWXF0qrD927+Dn0D1hLl6wPbfvlrP+nhjfsNzo0BnVjAZCkuHQY4PrqUxmVY2Zzlx3biRd3r4pBp95QlBTa77I8fnLoxGdqTnQ0Zyiu1c1JpojPNRdGBvNHswE/SbJYludsRP6NrkyWBWHbYVGDYyDX5KZw4PoyEA2p7gxv2JIcTEMpo8rdfvQ9W/N9sCs98bFbuyy0YMNazBp23pnTmY28cnYGDhiftCYta9zmHdxOvMVQ+P23uzcdN0jDWEd7zXjvly2D1hp5FGj2geRZFSsFBo/FJuHjDTKp2rgbbthd9HIbGyZQLjBE9HQabU3LmxF6PTMDf5rcVmqhlUaksHNjYOyZFEjs5EbM/vIxDKLoa2hgCQjbHLujXxgJmL2C6OIofnRpFxNzNKYfWBmYgzJl6mGtbsh9yaGFsN2gtXwPu/IRdVsl8ZC2uD0Q6fUz8Tx044K2RnZdmb+eik88sruVoo2n4nzQvuUrzujugdLQ6NIpp1XLTdh4LdzlONmTT9eGNe94ABuFtHNK4I/Quprs1HTL00TMzhFTd0UrpiZIOx5GsM7izyb96QpEtahwvy6fMmN6zqdAdUkaGTaRPfTkT35S5G092XGnY5HPw2mtcPxM2o8rbFU6+E0wgeG6YzpZg3bGdcZ1xl4bfKDwNoako68g+evXPkJ9R6mJkg+MFNndGfCVfbehCdfMzJ1WsDEH8NyqsGm2F+Ug2YbGrql91l/YfBo1rcmLpP3Znpg4vJ2X5/n5r4tsmnedbNm1mPzY2sObjBUfObbqdk7c+jWbHFznT8SIJ2+MztbqUdG+NHXmb0xIvaYlSVsdu165agJCdthZBZmYGhmkowPYuTYADViaCZ+Jpv5xrgHxl4Zknk9Mmx3UYNnxnAzmI2b3YUY77ktvJr5m50DVvrv10YuvQFot3VTa+grtqtTsiuYvb2rZubGNkb1nYWPFFHfVormXPOif7hzaU27c2m/D21TmONoF8vuWyB+f9unsDN926QK0Bcsw3IsMaljdg/M9Bud1MG7lwWKbbLTZ3tgmhajX07bYnhzSHKVg4uCgD7rXRg3NAszthhJzMqMGRoevX5g6q762gjyXHlp7D4wTbtOc/pFEXP15w9PDHkPOv4+X9Bm/2/Ncmf2aObruE6blscLgmb7rJ9KWrPiv3dmSlV1g6FaPqUn3fwhSjFfX5vpshof+/MPEhqCWhADKKAAAAAASUVORK5CYII=
